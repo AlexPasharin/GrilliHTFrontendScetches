@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Grillit App</title>
+    <style>
+      input[type="text"]{
+        display: block;
+        margin: 10px 0;
+      }
+      #select-food{
+        display: block;
+        margin: 20px 0;
+      }
+      #map{
+        width: 500px;
+        height: 500px;
+        background-color: yellow;
+      }
+      #add-new__link{
+        text-decoration: underline;
+        cursor: pointer;
+        margin: 10px 0;
+      }
+      #add-new__modal-wrapper{
+        position: fixed;
+        display: none;
+      }
+      #add-new__modal{
+        position: absolute;
+        width: 500px;
+        height: 600px;
+        background-color: green;
+        margin: auto;
+        z-index: 1;
+        border: 1px solid;
+        text-align: center;
+        font-weight: bold;
+      }
+      .positioned{
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom:0
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" placeholder="Osoite" />
+    <label id="select-food">Valitse ruokalaji:
+      <select>
+        <option value="Hotdog">Hodari</option>
+        <option value="Burger">Burger</option>
+        <option value="Vege">Vege</option>
+      </select>
+    </label>
+    <div id="map">
+      Tähän tulee kartta
+    </div>
+    <div id="add-new__link"> Lisää uusi </div>
+    <div id="add-new__modal-wrapper" class="positioned">
+          <div id="add-new__modal" class="positioned">
+              Tässä lisätään uusi grilli jotenkin
+              <button type="button" id="add-new__modal-close">Sulje</button>
+          </div>
+    </div>
+    <script>
+      document.getElementById("add-new__link").onclick = function(){
+        document.getElementById("add-new__modal-wrapper").style.display = "block"
+      }
+
+      document.getElementById("add-new__modal-close").onclick = function(){
+        document.getElementById("add-new__modal-wrapper").style.display = "none"
+      }
+    </script>
+  </body>
+</html>
