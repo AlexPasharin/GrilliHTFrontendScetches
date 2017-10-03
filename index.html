@@ -3,50 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Grillit App</title>
-    <style>
-      input[type="text"]{
-        display: block;
-        margin: 10px 0;
-      }
-      #select-food{
-        display: block;
-        margin: 20px 0;
-      }
-      #map{
-        width: 500px;
-        height: 500px;
-        background-color: yellow;
-      }
-      #add-new__link{
-        text-decoration: underline;
-        cursor: pointer;
-        margin: 10px 0;
-      }
-      #add-new__modal-wrapper{
-        position: fixed;
-        display: none;
-      }
-      #add-new__modal{
-        position: absolute;
-        width: 500px;
-        height: 600px;
-        background-color: green;
-        margin: auto;
-        z-index: 1;
-        border: 1px solid;
-        text-align: center;
-        font-weight: bold;
-      }
-      .positioned{
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom:0
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <input type="text" placeholder="Osoite" />
+    <input type="text" placeholder="Osoite" id="address"/>
     <label id="select-food">Valitse ruokalaji:
       <select>
         <option value="Hotdog">Hodari</option>
@@ -54,9 +14,8 @@
         <option value="Vege">Vege</option>
       </select>
     </label>
-    <div id="map">
-      Tähän tulee kartta
-    </div>
+    <button id="send-map-request" type="button">Lähetä</button>
+    <div id="map"></div>
     <div id="add-new__link"> Lisää uusi </div>
     <div id="add-new__modal-wrapper" class="positioned">
           <div id="add-new__modal" class="positioned">
@@ -64,14 +23,22 @@
               <button type="button" id="add-new__modal-close">Sulje</button>
           </div>
     </div>
+    <script src="index.js"></script>
     <script>
-      document.getElementById("add-new__link").onclick = function(){
-        document.getElementById("add-new__modal-wrapper").style.display = "block"
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
       }
-
-      document.getElementById("add-new__modal-close").onclick = function(){
-        document.getElementById("add-new__modal-wrapper").style.display = "none"
-      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD75uqZnh7vYqjPlhcAyClqTbavMgB6pVc&callback=initMap">
     </script>
   </body>
 </html>

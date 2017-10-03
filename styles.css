@@ -1,0 +1,44 @@
+input[type="text"]{
+  display: block;
+  margin: 10px 0;
+}
+
+#select-food{
+  display: inline-block;
+  margin: 10px 0 20px 0;
+}
+
+#send-map-request{
+  display: inline-block;
+  margin-left: 20px;
+}
+
+#add-new__link{
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+#add-new__modal-wrapper{
+  position: fixed;
+  display: none;
+}
+
+#add-new__modal{
+  position: absolute;
+  width: 500px;
+  height: 600px;
+  background-color: green;
+  margin: auto;
+  z-index: 1;
+  border: 1px solid;
+  text-align: center;
+  font-weight: bold;
+}
+
+.positioned{
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom:0
+}
